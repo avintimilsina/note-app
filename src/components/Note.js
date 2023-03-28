@@ -1,10 +1,9 @@
 import dayjs from "dayjs";
+import { toast } from "react-hot-toast";
 
 const Note = ({ heading, message, createdAt, setObjState }) => {
-	const deleteNote = (createdAt) => {
-		setObjState(function (objState) {
-			return objState.filter((note) => note.createdAt != createdAt);
-		});
+	const deleteNote = async (createdAt) => {
+		toast.error("Your data is permanently with us ;).");
 	};
 	return (
 		<div className="card w-96 mx-10 my-5 bg-base-100 shadow-xl" key={createdAt}>

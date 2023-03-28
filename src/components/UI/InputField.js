@@ -1,9 +1,8 @@
-
-const InputField = ({ value, onChange }) => {
+const InputField = ({ value, onChange, label }) => {
 	return (
 		<div>
 			<label className="label">
-				<span className="label-text text-xl">Heading</span>
+				<span className="label-text text-xl">{label}</span>
 			</label>
 			<input
 				value={value}
