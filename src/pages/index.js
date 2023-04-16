@@ -20,13 +20,13 @@ import { useCollectionData } from "react-firebase-hooks/firestore";
 import toast from "react-hot-toast";
 import { auth, db } from "../../firebase";
 import { FcGoogle } from "react-icons/fc";
+import LoginPage from "./login";
 
 dayjs.extend(relativeTime);
 
 const NotePage = () => {
 	// Authentication
 	const [user, userLoading, userError] = useAuthState(auth);
-	const [signInWithGoogle] = useSignInWithGoogle(auth);
 	const [signOut] = useSignOut(auth);
 	const [values, loading, error, snapshot] = useCollectionData(
 		query(collection(db, "notes"), where("user", "==", user?.uid ?? "-")),
@@ -75,12 +75,12 @@ const NotePage = () => {
 		<>
 			{user ? (
 				<>
-					<div className=" flex flex-row justify-around items-baseline">
+					<div className=" flex flex-row items-baseline justify-around">
 						<p className="select-none text-transparent">Happy Easter</p>
 
-						<Heading headingText={"My Note App"} />
+						<Heading headingText={"ENGRAVE"} />
 						<button
-							className="btn btn-error btn-outline"
+							className="btn-outline btn-error btn"
 							onClick={async () => {
 								await signOut();
 							}}
@@ -89,11 +89,11 @@ const NotePage = () => {
 						</button>
 					</div>
 
-					<div className="flex flex-col justify-around items-center">
+					<div className="flex flex-col items-center justify-around">
 						<input
 							value={heading}
 							onChange={addHeading}
-							className="input input-bordered w-96 rounded-b-none !outline-none  "
+							className="input-bordered input w-96 rounded-b-none !outline-none  "
 							placeholder="Heading"
 							// onFocus={() => {
 							// 	setMessageOpen(true);
@@ -106,19 +106,19 @@ const NotePage = () => {
 							<textarea
 								value={text}
 								onChange={addMessage}
-								className="textarea textarea-bordered h-24 w-96 rounded-t-none !outline-none border-t-0"
+								className="textarea-bordered textarea h-24 w-96 rounded-t-none border-t-0 !outline-none"
 								placeholder="Message"
 							/>
 						)}
 
 						<button
 							onClick={addNote}
-							className="btn btn-primary mt-7 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover: duration-300 ..."
+							className="hover: ... btn-primary btn mt-7 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
 						>
 							Publish Note
 						</button>
 					</div>
-					<div className="w-full flex flex-row justify-start gap-2 flex-wrap">
+					<div className="flex w-full flex-row flex-wrap justify-start gap-2">
 						{snapshot?.docs.map((user) => (
 							<Note
 								key={user.id}
@@ -131,17 +131,7 @@ const NotePage = () => {
 					</div>
 				</>
 			) : (
-				<div className="grid place-items-center h-screen">
-					<button
-						className="btn btn-secondary gap-3"
-						onClick={async () => {
-							await signInWithGoogle();
-						}}
-					>
-						<FcGoogle className="scale-125" />
-						Sign-in with Google
-					</button>
-				</div>
+				<LoginPage/>
 			)}
 		</>
 	);

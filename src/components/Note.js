@@ -11,7 +11,7 @@ const Note = ({ heading, message, createdAt, id }) => {
 
 	return (
 		<div
-			className="card w-96 mx-10 my-5 bg-base-100 shadow-xl "
+			className="card mx-10 my-5 w-96 bg-base-100 shadow-xl "
 			key={createdAt}
 		>
 			<div className="card-body ">
@@ -33,14 +33,14 @@ const Note = ({ heading, message, createdAt, id }) => {
 								message: editValue.message,
 							});
 							toast.success("Note edited successfully!");
-							console.log("Form Submitted");
+							// console.log("Form Submitted");
 							// router.reload();
 						}}
 					>
 						<Form>
 							<label
 								htmlFor={id}
-								className="btn btn-sm btn-primary transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-110 hover: duration-300 ..."
+								className="hover: ... btn-primary btn-sm btn transition delay-75 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
 							>
 								View
 							</label>
@@ -51,12 +51,12 @@ const Note = ({ heading, message, createdAt, id }) => {
 									className="modal-box relative w-8/12 max-w-2xl"
 									htmlFor=""
 								>
-									<h3 className="font-semibold text-lg">
+									<h3 className="text-lg font-semibold">
 										<Field
 											id="heading"
 											name="heading"
 											placeholder="Heading"
-											className="bg-transparent w-full !outline-none text-2xl "
+											className="w-full bg-transparent text-2xl !outline-none "
 										/>
 									</h3>
 									<p className="py-4">
@@ -65,11 +65,11 @@ const Note = ({ heading, message, createdAt, id }) => {
 											id="message"
 											name="message"
 											placeholder="Message"
-											className="bg-transparent w-full !outline-none h-24"
+											className="h-24 w-full bg-transparent !outline-none"
 										/>
 									</p>
 									<button
-										className="btn btn-sm btn-primary transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover: duration-300 ..."
+										className="hover: ... btn-primary btn-sm btn transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
 										type="submit"
 									>
 										Edit
@@ -80,7 +80,7 @@ const Note = ({ heading, message, createdAt, id }) => {
 					</Formik>
 
 					<button
-						className="btn btn-sm btn-error transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-110 hover: duration-300 ..."
+						className="hover: ... btn-error btn-sm btn transition delay-75 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
 						onClick={() => {
 							deleteNote(id);
 						}}

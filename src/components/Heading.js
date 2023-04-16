@@ -3,10 +3,8 @@ import React from "react";
 const Heading = ({ headingText }) => {
 	return (
 		<div className="flex flex-row justify-center">
-			<div className="text-3xl font-bold text-center my-7 card w-96 mx-10bg-base-100 shadow-xl  ">
-				<h1 className="p-5 better-font text-5xl text-green-700">
-					{headingText}
-				</h1>
+			<div className="mx-10bg-base-100 card my-7 w-96 text-center text-3xl font-bold shadow-xl  ">
+				<h1 className="better-font p-5 text-5xl">{headingText}</h1>
 			</div>
 		</div>
 	);
