@@ -11,15 +11,10 @@ import {
 	where,
 } from "firebase/firestore";
 import { useState } from "react";
-import {
-	useAuthState,
-	useSignInWithGoogle,
-	useSignOut,
-} from "react-firebase-hooks/auth";
+import { useAuthState, useSignOut } from "react-firebase-hooks/auth";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import toast from "react-hot-toast";
 import { auth, db } from "../../firebase";
-import { FcGoogle } from "react-icons/fc";
 import LoginPage from "./login";
 
 dayjs.extend(relativeTime);
@@ -77,10 +72,9 @@ const NotePage = () => {
 				<>
 					<div className=" flex flex-row items-baseline justify-around">
 						<p className="select-none text-transparent">Happy Easter</p>
-
 						<Heading headingText={"ENGRAVE"} />
 						<button
-							className="btn-outline btn-error btn"
+							className="btn-outline btn-error btn  transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 "
 							onClick={async () => {
 								await signOut();
 							}}
@@ -95,12 +89,6 @@ const NotePage = () => {
 							onChange={addHeading}
 							className="input-bordered input w-96 rounded-b-none !outline-none  "
 							placeholder="Heading"
-							// onFocus={() => {
-							// 	setMessageOpen(true);
-							// }}
-							// onBlur={() => {
-							// 	setMessageOpen(false);
-							// }}
 						/>
 						{(messageOpen || heading.length > 0) && (
 							<textarea
@@ -131,7 +119,7 @@ const NotePage = () => {
 					</div>
 				</>
 			) : (
-				<LoginPage/>
+				<LoginPage />
 			)}
 		</>
 	);

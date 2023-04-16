@@ -1,26 +1,27 @@
 import React from "react";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { auth } from "../../firebase";
+import Image from "next/image";
 
 const LoginPage = () => {
 	const [signInWithGoogle] = useSignInWithGoogle(auth);
 
 	return (
-		<section class="background-image-full bg-gray-50">
+		<section>
 			<div class="mx-auto flex flex-col items-center justify-center px-6 py-8 md:h-screen lg:py-0">
 				<a
 					href="#"
 					class="mb-6 flex items-center text-2xl font-semibold text-gray-900 dark:text-white"
 				>
-					<img
-						class="mr-2 h-10 w-8"
-						className="h-20 w-20 "
+					<span className="better-font size text-4xl px-4">ENGRAVE</span>
+					<Image
+					height={100}
+					width={100}
 						src="logo.svg"
 						alt="logo"
 					/>
-					<span className="better-font size text-4xl">ENGRAVE</span>
 				</a>
-				<div class="w-full rounded-lg bg-slate-50 shadow-2xl shadow-slate-500	 md:mt-0 lg:max-w-md xl:p-0">
+				<div class="w-full rounded-lg  shadow-2xl shadow-slate-500	 md:mt-0 lg:max-w-md xl:p-0">
 					<div class="space-y-4 p-6 sm:p-8 md:space-y-6">
 						<h1 class="text-xl font-bold leading-tight tracking-tight md:text-2xl">
 							Sign in to your Google account
